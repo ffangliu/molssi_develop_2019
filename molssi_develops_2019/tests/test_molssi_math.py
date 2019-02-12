@@ -7,12 +7,20 @@ import molssi_develops_2019 as md
 import pytest
 import sys
 
-def test_mean():
-    num_list =  [ 1, 2, 3, 4, 5]
-    observed = md.mean(num_list)
-    expected = 3
+@pytest.fixture
+def num_list_3():
+    return [1, 2, 3, 4, 5]
 
-    assert (observed == expected)
+@pytest.mark.parametrize("num_list, expected_mean",[
+    ([1,2,3,4,5],3),
+    ([0,2,4,6],3),
+    ([1,2,3,4],2.5),
+    (list(range(1,10000)),10000/2)
+])
+
+def test_mean(num_list, expected_mean):
+    assert md.mean(num_list) == expected_mean
+
 
 def test_mean_type_error():
     test_variable="this is a string"
@@ -24,3 +32,8 @@ def test_zero_length():
     test_list=[]
     with pytest.raises(ZeroDivisionError):
         md.mean(test_list)
+
+@pytest.mark.parametrize("x",[0,1])
+@pytest.mark.parametrize("y",[2,3])
+def test_foo(x,y):
+    pass
