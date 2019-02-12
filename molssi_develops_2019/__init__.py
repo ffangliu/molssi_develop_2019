@@ -9,6 +9,7 @@ from __future__ import absolute_import
 
 # Add imports here
 from .molssi_develops_2019 import *
+from .string_util import title_case
 
 # Handle versioneer
 from ._version import get_versions
