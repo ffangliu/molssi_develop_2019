@@ -6,6 +6,28 @@ Handles the primary functions
 """
 
 
+def mean(num_list):
+    """
+    Computes the mean of a list of numbers
+    Parameters
+    ----------
+    num_list: list of numbers
+
+    Returns
+    -------
+    res: float
+         Mean of the numbers in num_list
+    """
+    if not isinstance(num_list, list):
+        raise TypeError('Invalid input %s Input must be a list' % (num_list))
+
+    if len(num_list) < 1:
+        raise ZeroDivisionError('Cannot calculate mean of an empty list')
+    res = sum(num_list) / len(num_list)
+
+    return res
+
+
 def canvas(with_attribution=True):
     """
     Placeholder function to show example docstring (NumPy format)
