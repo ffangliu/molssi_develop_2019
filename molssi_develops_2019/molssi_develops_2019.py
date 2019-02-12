@@ -23,7 +23,7 @@ def mean(num_list):
 
     if len(num_list) < 1:
         raise ZeroDivisionError('Cannot calculate mean of an empty list')
-    res = sum(num_list) / len(num_list)
+    res = sum([ float(x) for x in num_list]) / len(num_list)
 
     return res
 
