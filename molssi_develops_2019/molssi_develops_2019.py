@@ -4,7 +4,7 @@ A short description of the project.
 
 Handles the primary functions
 """
-
+import numpy as np
 
 def mean(num_list):
     """
